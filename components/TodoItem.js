@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const TodoItem = ({ item, deleteTodo }) => {
+export default function TodoItem({ item, deleteTodo }) {
   return (
     <TouchableOpacity onPress={() => deleteTodo(item._id)}>
       <Text style={styles.item}>{item.text}</Text>
     </TouchableOpacity>
   );
-};
+}
 
 const styles = StyleSheet.create({
   item: {
@@ -19,5 +19,3 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 });
-
-export default TodoItem;

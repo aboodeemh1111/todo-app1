@@ -13,6 +13,7 @@ import axios from "axios";
 import TodoItem from "./components/TodoItem";
 import Header from "./components/Header";
 import AddTodo from "./components/AddTodo";
+require("dotenv").config();
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -30,7 +31,6 @@ export default function App() {
       setTodos(response.data);
     } catch (error) {
       console.error("Error fetching todos:", error.message);
-      console.error("Error details:", error);
     }
   };
 
@@ -52,6 +52,7 @@ export default function App() {
           "https://mobile-apps-gd4h8503k-abdullahs-projects-d8a073e4.vercel.app/api/todos",
           { text }
         );
+        console.log("Response:", response.data);
         setTodos((prevTodos) => [response.data, ...prevTodos]);
       } catch (error) {
         console.error("Error adding todo:", error);
@@ -71,7 +72,6 @@ export default function App() {
     <TouchableWithoutFeedback
       onPress={() => {
         Keyboard.dismiss();
-        console.log("dismissed keyboard");
       }}
     >
       <View style={isDarkMode ? styles.containerDark : styles.container}>
