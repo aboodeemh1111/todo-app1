@@ -11,6 +11,7 @@
     "express": "^4.19.2",
     "mongodb": "^6.6.2",
     "mongoose": "^5.13.22",
+    "react-native-dotenv": "^3.4.11",
     "vercel": "^34.2.3"
   }
 }

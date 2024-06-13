@@ -1,13 +1,17 @@
+// components/TodoItem.js
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-export default function TodoItem({ item, deleteTodo }) {
+const TodoItem = ({ item, deleteTodo }) => {
   return (
-    <TouchableOpacity onPress={() => deleteTodo(item._id)}>
-      <Text style={styles.item}>{item.text}</Text>
-    </TouchableOpacity>
+    <View style={styles.item}>
+      <Text style={styles.itemText}>{item.text}</Text>
+      <TouchableOpacity onPress={() => deleteTodo(item.key)}>
+        <Text style={styles.deleteText}>X</Text>
+      </TouchableOpacity>
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   item: {
@@ -17,5 +21,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderStyle: "dashed",
     borderRadius: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  itemText: {
+    marginLeft: 10,
+  },
+  deleteText: {
+    color: "red",
   },
 });
+
+export default TodoItem;

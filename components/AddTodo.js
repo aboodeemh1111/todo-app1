@@ -1,7 +1,8 @@
+// components/AddTodo.js
 import React, { useState } from "react";
-import { StyleSheet, View, TextInput, Button } from "react-native";
+import { View, TextInput, Button, StyleSheet } from "react-native";
 
-export default function AddTodo({ submitHandler }) {
+const AddTodo = ({ submitHandler }) => {
   const [text, setText] = useState("");
 
   const changeHandler = (val) => {
@@ -17,16 +18,13 @@ export default function AddTodo({ submitHandler }) {
         value={text}
       />
       <Button
-        onPress={() => {
-          submitHandler(text);
-          setText(""); // Clear input after submission
-        }}
+        onPress={() => submitHandler(text)}
         title="add todo"
-        color="orange"
+        color="coral"
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   input: {
@@ -37,3 +35,5 @@ const styles = StyleSheet.create({
     borderBottomColor: "#ddd",
   },
 });
+
+export default AddTodo;
